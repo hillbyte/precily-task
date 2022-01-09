@@ -1,24 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
-
+import SplitterLayout from "react-splitter-layout";
+import "react-splitter-layout/lib/index.css";
+import WindowOne from "./Component/WindowOne";
+import WindowTwo from "./Component/WindowTwo";
+import WindowThree from "./Component/WindowThree";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <SplitterLayout primaryIndex={1} secondaryInitialSize={250}>
+      <SplitterLayout vertical secondaryInitialSize={250}>
+        <SplitterLayout secondaryInitialSize={850}>
+          <WindowOne />
+          <WindowTwo />
+        </SplitterLayout>
+        <WindowThree />
+      </SplitterLayout>
+    </SplitterLayout>
   );
 }
 
